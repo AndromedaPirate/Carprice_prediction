@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  dash:
+    image: anawatppml/dash-carpredict:v0.
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: dashh.Dockerfile
+    volumes:
+     - ./.vscode-server:/root/.vscode-server
+     - ./code:/ml2023/code
+    ports:
+     - 4444:8050
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8050
